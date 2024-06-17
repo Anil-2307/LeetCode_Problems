@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class WordsContainingCharacter {
+
+	public static void main(String[] args) {
+		String[] words = {"leet","code"};
+		char x = 'e';
+		
+		System.out.println(words.length);
+		
+		int[] res = words(words,x);
+		System.out.println(Arrays.toString(res));
+		
+	}
+	public static int[] words(String[] words, char x) {
+		int cont[] = new int[words.length];
+		int k =0;
+		for(int i=0;i<words.length;i++) {
+			String word = words[i];
+			for(char c : word.toCharArray()) {
+				if(c == x) {
+					cont[k] = i;
+					k++;
+					break;
+				}
+			}
+		}
+		return cont;
+	}
+
+}
