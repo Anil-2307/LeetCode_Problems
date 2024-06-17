@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+public class RichestCustomerWealth {
+
+	public static void main(String[] args) {
+		int accounts[][] = {{1,2,3},{3,2,1}};
+		
+		System.out.println(accounts[0].length);
+		
+		int res = richest(accounts);
+		System.out.println(res);
+
+	}
+	public static int richest(int[][] accounts) {
+		int[] sum = new int[accounts.length];
+		int max = 0;
+		
+        for(int i=0;i<accounts.length;i++){
+            for(int j=0;j<accounts[i].length;j++){
+                sum[i] = sum[i] + accounts[i][j];
+            }
+        }
+        for( int k=0;k<sum.length;k++) {
+        	if(sum[k]>max) {
+        		max = sum[k];
+        	}
+        }
+        System.out.println(sum.length);
+		return max;
+	}
+
+}
