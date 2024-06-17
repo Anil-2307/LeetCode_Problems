@@ -1,0 +1,22 @@
+public class CheckingPalindrome {
+
+	public static void main(String[] args) {
+		int n=143;
+		int r = 0,sum = 0,temp=0;
+		temp = n;
+		System.out.println(14%10);
+		while(n>0) {
+			r=n%10;
+			sum = sum*10+r;
+			n = n/10;
+		}
+		
+		if(temp == sum) {
+			System.out.println("palindrome");
+		}
+		else {
+			System.out.println("not palindrome");
+		}
+	}
+
+}
