@@ -1,0 +1,42 @@
+public class findMedianSortedArrays {
+
+	public static void main(String[] args) {
+		int nums1[] = {1,2};
+		int nums2[] = {3,4};
+		
+		double res = findMedianSortedArrays(nums1,nums2);
+		System.out.println(res);
+	}
+	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int res[] = new int[m+n];
+        int res1[] = new int[m+n];
+        double d ;
+        for(int i=0;i<m;i++) {
+        	res[i] = nums1[i];
+        }
+        for(int i=0;i<n;i++) {
+        	res[m+i] = nums2[i];
+        }
+        for(int k=0;k<res.length;k++) {
+        	for(int o=0;o<res.length;o++) {
+        		if(res[k]<res[o]) {
+        			res1[k] = res[o];
+        			res[o] = res[k];
+        			res[k] = res1[k];
+        		}
+        	}
+        }
+        if(res.length%2 != 0) {
+        	d = res[res.length/2];
+        }
+		else {
+			double a = res[res.length/2];
+			double b = res[(res.length/2)-1];
+			d = (a+b)/2;
+		}
+		return d;
+    }
+
+}
